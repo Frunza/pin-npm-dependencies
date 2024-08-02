@@ -1,0 +1,25 @@
+services:
+  generate1:
+    image: nodeimage
+    network_mode: host
+    working_dir: /app
+    volumes:
+      - ./output:/app/output
+    entrypoint: ["sh", "-c"]
+    command: ["sh scripts/generate1.sh"]
+  generate2:
+    image: nodeimage
+    network_mode: host
+    working_dir: /app
+    volumes:
+      - ./output:/app/output
+    entrypoint: ["sh", "-c"]
+    command: ["sh scripts/generate2.sh"]
+  compare:
+    image: nodeimage
+    network_mode: host
+    working_dir: /app
+    volumes:
+      - ./output:/app/output
+    entrypoint: ["sh", "-c"]
+    command: ["sh scripts/compare.sh"]
